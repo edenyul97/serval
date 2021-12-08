@@ -681,6 +681,7 @@ class Serval(object):
             return False
         if layer is not None and all([
             layer.isValid(),
+            os.path.splitext(layer.source())[1].lower()!='.asc',
             layer.type() != QgsMapLayerType.MeshLayer,
             layer.type() == QgsMapLayerType.RasterLayer,
             (layer.dataProvider().capabilities() & QgsRasterDataProvider.Create),
